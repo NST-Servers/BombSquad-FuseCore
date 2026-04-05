@@ -6,6 +6,7 @@ __pycache__/
 ~*.*
 ~*/
 $*.*
+.old/*
 
 # bombsquad dev source files
 BombSquadGeneric.pdb
@@ -39,4 +40,5 @@ ba_data/python/batemplatefs/*
 ba_data/python/bauiv1/*
 ba_data/python/bauiv1lib/*
 ba_data/python/efro/*
+ba_data/python/bacommontools/*
 ba_data/python-site-packages/*

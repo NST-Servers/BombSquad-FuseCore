@@ -45,6 +45,18 @@ curl -L "$DL_URL" -o "$OUT_PATH" || {
     exit 1
 }
 
+[[ -d "$SOURCE_PATH/.old" ]] && rm -rf "$SOURCE_PATH/.old"
+mkdir -p "$SOURCE_PATH/.old"
+
+# clone 'ba_data' & 'bombsquad' to '.old'
+# in case the update breaks things
+[[ -d "$SOURCE_PATH/ba_data" ]] && {
+    cp -r "$SOURCE_PATH/ba_data" "$SOURCE_PATH/.old"
+}
+[[ -f "$SOURCE_PATH/bombsquad" ]] && {
+    cp -r "$SOURCE_PATH/bombsquad" "$SOURCE_PATH/.old"
+}
+
 # extract and nicely locate our archive at our source
 echo "Extracting archive at \"$SOURCE_PATH\"..."
 tar -xzf "$OUT_PATH" -C "$SOURCE_PATH" --strip-components=1 || {
